@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function() {
+  var correct = 'robsreminders';
+  var stored = sessionStorage.getItem('ps_tracker_auth');
+  if (stored !== correct) {
+    var input = prompt('Enter password to access the PS Utilization Tracker:');
+    if (input !== correct) {
+      document.documentElement.innerHTML = '<div style="font-family:sans-serif;text-align:center;padding:80px;color:#31414E"><h2>Incorrect password.</h2><p>Please refresh and try again.</p></div>';
+      return;
+    }
+    sessionStorage.setItem('ps_tracker_auth', correct);
+  }
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PS Utilization Tracker — May & Jun 2026</title>
